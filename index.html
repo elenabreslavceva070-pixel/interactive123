@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Как в бухгалтерском учете отражать операции на условиях отсрочки</title>
+    <title>Тренажер по ФСБУ 9/2025</title>
     <style>
         * {
             margin: 0;
@@ -12,28 +12,28 @@
         }
 
         body {
-            background: linear-gradient(145deg, #eef2f7 0%, #e0e8f0 100%);
+            background: linear-gradient(145deg, #eef2f7 0%, #dce4ec 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
-            padding: 1.5rem;
+            padding: 0.8rem;
         }
 
         .quiz-container {
-            max-width: 860px;
+            max-width: 720px;
             width: 100%;
             background: #ffffff;
-            border-radius: 2.5rem;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.03);
+            border-radius: 1.8rem;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.03);
             overflow: hidden;
             transition: all 0.2s ease;
         }
 
         .quiz-header {
-            padding: 1.8rem 2rem 1rem 2rem;
-            border-bottom: 1px solid rgba(149, 202, 250, 0.4);
+            padding: 1.2rem 1.5rem 0.6rem 1.5rem;
+            border-bottom: 1px solid rgba(149, 202, 250, 0.3);
             background: #fefefe;
         }
 
@@ -42,71 +42,63 @@
             justify-content: space-between;
             align-items: baseline;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 0.75rem;
+            gap: 0.4rem;
+            margin-bottom: 0.3rem;
         }
 
         .question-counter {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            letter-spacing: 0.3px;
-            color: #2c3e50;
+            letter-spacing: 0.2px;
+            color: #1f3b4c;
             background: #eef4fc;
-            padding: 0.3rem 0.9rem;
-            border-radius: 40px;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
             display: inline-block;
         }
 
         .score-badge {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #1e4663;
             background: #eef4fc;
-            padding: 0.3rem 0.9rem;
-            border-radius: 40px;
-        }
-
-        h2 {
-            font-size: 1.65rem;
-            font-weight: 600;
-            color: #1a2c3e;
-            margin-top: 0.5rem;
-            letter-spacing: -0.2px;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
         }
 
         .question-area {
-            padding: 2rem 2rem 1.5rem 2rem;
+            padding: 1.2rem 1.5rem 0.8rem 1.5rem;
         }
 
         .question-text {
-            font-size: 1.45rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            line-height: 1.4;
+            line-height: 1.3;
             color: #0b2b3f;
-            margin-bottom: 2rem;
-            border-left: 5px solid #95CAFA;
-            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #95CAFA;
+            padding-left: 0.8rem;
         }
 
         .options-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
         }
 
         .option-item {
             border: 2px solid #95CAFA;
-            border-radius: 1.25rem;
-            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            padding: 0.6rem 1rem;
             background: #ffffff;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
             cursor: pointer;
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            font-size: 1rem;
-            line-height: 1.4;
+            gap: 0.7rem;
+            font-size: 0.9rem;
+            line-height: 1.3;
             color: #1f3b4c;
         }
 
@@ -114,26 +106,27 @@
             background: #f8fcff;
             border-color: #6fb0e0;
             transform: translateY(-1px);
-            box-shadow: 0 6px 12px -8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px -6px rgba(0, 0, 0, 0.08);
         }
 
         .option-radio {
             appearance: none;
             -webkit-appearance: none;
-            width: 1.3rem;
-            height: 1.3rem;
+            width: 1.1rem;
+            height: 1.1rem;
             border: 2px solid #95CAFA;
             border-radius: 50%;
-            margin-top: 0.1rem;
+            margin-top: 0.05rem;
             position: relative;
             cursor: pointer;
             background: white;
             transition: 0.1s;
+            flex-shrink: 0;
         }
         .option-radio:checked {
             border-color: #2c7ab1;
             background-color: #2c7ab1;
-            box-shadow: inset 0 0 0 3px white;
+            box-shadow: inset 0 0 0 2.5px white;
         }
         .option-radio:focus {
             outline: none;
@@ -154,32 +147,32 @@
         }
 
         .actions {
-            padding: 0 2rem 2rem 2rem;
+            padding: 0 1.5rem 1.2rem 1.5rem;
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
         }
 
         button {
             font-family: inherit;
             font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.8rem 1.8rem;
+            font-size: 0.85rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 3rem;
             border: none;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
             background: #f0f4f9;
             color: #1f4e6e;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
 
         .btn-primary {
             background: #2c7ab1;
             color: white;
-            box-shadow: 0 4px 8px rgba(44,122,177,0.2);
+            box-shadow: 0 3px 6px rgba(44,122,177,0.15);
         }
         .btn-primary:hover {
             background: #1f6190;
@@ -194,58 +187,64 @@
         }
 
         .explanation-box {
-            margin: 0 2rem 1.5rem 2rem;
+            margin: 0 1.5rem 0.8rem 1.5rem;
             background: #f9fdfe;
-            border-radius: 1.2rem;
-            padding: 1.2rem 1.5rem;
-            border-left: 5px solid #95CAFA;
-            font-size: 0.95rem;
+            border-radius: 1rem;
+            padding: 0.8rem 1.2rem;
+            border-left: 4px solid #95CAFA;
+            font-size: 0.85rem;
             color: #1e4663;
-            line-height: 1.45;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            line-height: 1.4;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .explanation-box strong {
+            font-weight: 600;
         }
 
         .result-screen {
             text-align: center;
-            padding: 2.5rem 2rem 3rem;
+            padding: 2rem 1.5rem 2.2rem;
         }
 
         .result-icon {
-            font-size: 3.2rem;
-            margin-bottom: 0.75rem;
+            font-size: 2.6rem;
+            margin-bottom: 0.3rem;
         }
 
         .result-title {
-            font-size: 1.9rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             color: #1a2c3e;
         }
 
         .result-message {
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             color: #2c3e50;
         }
 
         .result-score {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             background: #eef4fc;
             display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
-            margin-bottom: 2rem;
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
             color: #1f6190;
         }
 
         @media (max-width: 550px) {
-            .quiz-container { border-radius: 1.8rem; }
-            .question-text { font-size: 1.2rem; }
-            .option-item { padding: 0.8rem 1rem; }
-            button { padding: 0.6rem 1.2rem; }
+            .quiz-container { border-radius: 1.4rem; }
+            .question-text { font-size: 1rem; }
+            .option-item { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+            button { padding: 0.4rem 1rem; font-size: 0.8rem; }
             .actions { flex-direction: column; align-items: stretch; }
             .btn-primary, .btn-secondary { justify-content: center; display: flex; }
+            .quiz-header { padding: 0.8rem 1rem 0.4rem 1rem; }
+            .question-area { padding: 0.8rem 1rem 0.4rem 1rem; }
+            .explanation-box { margin: 0 1rem 0.6rem 1rem; padding: 0.6rem 1rem; }
         }
     </style>
 </head>
@@ -288,11 +287,10 @@
         }
     ];
 
-    // Состояние приложения
     let currentState = {
-        phase: 'quiz',          // 'quiz', 'explanation'
+        phase: 'quiz',
         currentQuestionIdx: 0,
-        userAnswers: [],        // массив { selectedIdx, isCorrect }
+        userAnswers: [],
         explanationForCurrent: null,
         isAnswerChecked: false,
         selectedOptionTemp: null,
@@ -301,7 +299,6 @@
 
     const appContainer = document.getElementById('app');
 
-    // Записать ответ текущего вопроса
     function recordCurrentAnswer() {
         const idx = currentState.currentQuestionIdx;
         const selected = currentState.selectedOptionTemp;
@@ -311,7 +308,6 @@
         return true;
     }
 
-    // Количество правильных ответов
     function getCorrectCount() {
         let correct = 0;
         for (let i = 0; i < currentState.userAnswers.length; i++) {
@@ -320,31 +316,19 @@
         return correct;
     }
 
-    // Все ли вопросы отвечены
     function allQuestionsAnswered() {
         return currentState.userAnswers.length === QUESTIONS.length && 
                currentState.userAnswers.every(a => a !== undefined);
     }
 
-    // Показать финальный итог (после 3-го вопроса)
     function showFinalResult() {
         const correctCount = getCorrectCount();
         const total = QUESTIONS.length;
         const allCorrect = (correctCount === total);
         
-        let icon = '';
-        let title = '';
+        let icon = allCorrect ? '🏆✨' : '📖';
+        let title = allCorrect ? 'Молодец!' : 'Ваш результат';
         let message = '';
-        
-        if (allCorrect) {
-            icon = '🏆✨';
-            title = 'Молодец!';
-            message = '';
-        } else {
-            icon = '📖';
-            title = 'Ваш результат';
-            message = '';
-        }
         
         const resultHtml = `
             <div class="quiz-header">
@@ -352,14 +336,13 @@
                     <span class="question-counter">Итог</span>
                     <span class="score-badge">${correctCount}/${total} баллов</span>
                 </div>
-                <h2>Как в бухгалтерском учете отражать операции на условиях отсрочки</h2>
             </div>
             <div class="result-screen">
                 <div class="result-icon">${icon}</div>
                 <div class="result-title">${title}</div>
                 <div class="result-score">Вы набрали ${correctCount} из ${total} баллов</div>
                 <div class="result-message">${message}</div>
-                <button class="btn-primary" id="restartBtn" style="padding: 0.9rem 2.2rem; font-size:1rem;">Пройти заново</button>
+                <button class="btn-primary" id="restartBtn" style="padding: 0.6rem 1.8rem; font-size:0.9rem;">Пройти заново</button>
             </div>
         `;
         
@@ -368,59 +351,42 @@
         if (restartBtn) restartBtn.addEventListener('click', () => resetAndRestart());
     }
     
-    // Обработка "Далее" (после пояснения)
     function handleNext() {
         const nextIdx = currentState.currentQuestionIdx + 1;
-        
-        // Если это был последний вопрос, показываем итог
         if (nextIdx >= QUESTIONS.length) {
             showFinalResult();
             return;
         }
-        
-        // Переход к следующему вопросу
         currentState.currentQuestionIdx = nextIdx;
         currentState.phase = 'quiz';
         currentState.isAnswerChecked = false;
         currentState.explanationForCurrent = null;
-        
         const saved = currentState.userAnswers[nextIdx];
-        if (saved) {
-            currentState.selectedOptionTemp = saved.selectedIdx;
-        } else {
-            currentState.selectedOptionTemp = null;
-        }
+        currentState.selectedOptionTemp = saved ? saved.selectedIdx : null;
         render();
     }
 
-    // Обработка "Проверить"
     function handleCheck() {
         if (currentState.isAnswerChecked) return;
-        
         const selected = currentState.selectedOptionTemp;
         if (selected === null) {
             alert("Пожалуйста, выберите вариант ответа.");
             return;
         }
-        
         const idx = currentState.currentQuestionIdx;
         const isCorrect = (selected === QUESTIONS[idx].correctIndex);
-        
-        // Сохраняем ответ
         if (!currentState.userAnswers[idx]) {
             currentState.userAnswers[idx] = { selectedIdx: selected, isCorrect: isCorrect };
         } else {
             currentState.userAnswers[idx].selectedIdx = selected;
             currentState.userAnswers[idx].isCorrect = isCorrect;
         }
-        
         currentState.isAnswerChecked = true;
         currentState.explanationForCurrent = QUESTIONS[idx].explanation;
         currentState.phase = 'explanation';
         render();
     }
 
-    // Полный сброс и перезапуск
     function resetAndRestart() {
         currentState = {
             phase: 'quiz',
@@ -434,7 +400,6 @@
         render();
     }
 
-    // Выбор варианта
     function selectOption(optionIndex) {
         if (currentState.phase !== 'quiz') return;
         if (currentState.isAnswerChecked) return;
@@ -442,11 +407,8 @@
         render();
     }
 
-    // Отрисовка фаз quiz и explanation
     function render() {
         if (!appContainer) return;
-        
-        // Защита: если случайно все вопросы отвечены, но рендер просит вопрос
         if (allQuestionsAnswered() && (currentState.phase === 'quiz' || currentState.phase === 'explanation') && currentState.currentQuestionIdx >= QUESTIONS.length) {
             showFinalResult();
             return;
@@ -456,11 +418,9 @@
         const qIdx = currentState.currentQuestionIdx;
         const question = QUESTIONS[qIdx];
         const isCheckedPhase = (currentState.phase === 'explanation');
-        
         let savedAnswer = currentState.userAnswers[qIdx];
         let selectedIdx = currentState.selectedOptionTemp;
         
-        // Подсветка для фазы explanation (правильный зеленый, неверный выбранный — красный)
         let highlightMap = {};
         if (isCheckedPhase && savedAnswer) {
             const correctIdx = question.correctIndex;
@@ -471,7 +431,6 @@
             }
         }
         
-        // Формируем варианты
         let optionsHtml = '';
         question.options.forEach((opt, idx) => {
             let additionalClass = '';
@@ -487,7 +446,6 @@
             `;
         });
         
-        // Пояснение
         let explanationBlock = '';
         if (currentState.phase === 'explanation' && currentState.explanationForCurrent) {
             explanationBlock = `
@@ -498,7 +456,6 @@
             `;
         }
         
-        // Кнопки
         let actionButtons = '';
         if (currentState.phase === 'quiz') {
             actionButtons = `
@@ -514,7 +471,6 @@
             `;
         }
         
-        // Прогресс
         const answeredCount = currentState.userAnswers.filter(a => a !== undefined).length;
         
         const headerHtml = `
@@ -523,7 +479,6 @@
                     <span class="question-counter">Вопрос ${qIdx+1} из ${total}</span>
                     <span class="score-badge">✅ ${answeredCount}/${total} отвечено</span>
                 </div>
-                <h2>Как в бухгалтерском учете отражать операции на условиях отсрочки</h2>
             </div>
             <div class="question-area">
                 <div class="question-text">${escapeHtml(question.text)}</div>
@@ -537,7 +492,6 @@
         
         appContainer.innerHTML = headerHtml;
         
-        // Обработчики кликов по блокам вариантов
         const optionDivs = document.querySelectorAll('.option-item');
         optionDivs.forEach(div => {
             const radio = div.querySelector('.option-radio');
@@ -554,7 +508,6 @@
             }
         });
         
-        // Обработчики на радио
         const radios = document.querySelectorAll('.option-radio');
         radios.forEach(radio => {
             radio.addEventListener('change', (e) => {
@@ -565,14 +518,12 @@
             });
         });
         
-        // Кнопки
         const checkBtn = document.getElementById('checkBtn');
         if (checkBtn) checkBtn.addEventListener('click', handleCheck);
         const nextBtn = document.getElementById('nextBtn');
         if (nextBtn) nextBtn.addEventListener('click', handleNext);
     }
     
-    // Экранирование для безопасности (дополнительно удаляем возможную букву Ё из текстов)
     function escapeHtml(str) {
         let result = str.replace(/[&<>]/g, function(m) {
             if (m === '&') return '&amp;';
@@ -580,12 +531,10 @@
             if (m === '>') return '&gt;';
             return m;
         });
-        // Замена буквы Ё на Е (для единообразия, хотя в исходных текстах её нет)
         result = result.replace(/Ё/g, 'Е').replace(/ё/g, 'е');
         return result;
     }
     
-    // Запуск
     render();
 </script>
 </body>
